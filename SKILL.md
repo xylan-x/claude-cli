@@ -7,27 +7,18 @@ description: "Use Claude Code CLI to communicate with Claude Code for any coding
 
 ## Overview
 
-Run Claude Code CLI in the current repo to communicate with Claude Code for coding tasks. Default to interactive mode unless the user asks for one-time or yolo mode.
+Run Claude Code CLI in the current repo to communicate with Claude Code for coding tasks. Default to one-time (-p) unless the user asks for an interactive session or yolo mode.
 
-## Quick Start (interactive default)
+## Quick Start (one-time default)
 
-- Start an interactive session in the current repo:
-  - `claude`
-- Start interactive with an initial prompt:
-  - `claude "Refactor this module for clarity"`
+- Run once and exit:
+  - `claude -p "Summarize recent changes in this repo"`
+- Pipe input:
+  - `git diff | claude -p "Review these changes"`
 
 Login note:
 - Assume the user is already logged in.
 - If not, run `claude` and use `/login`.
-
-## One-time mode (print)
-
-Use when the user asks for "one-time" or "print" mode. It runs once and exits.
-
-- Example:
-  - `claude -p "Summarize recent changes in this repo"`
-- Pipe input:
-  - `git diff | claude -p "Review these changes"`
 
 ## Yolo mode (skip permission prompts)
 
@@ -36,6 +27,15 @@ Use only when the user explicitly asks to skip permission prompts.
 - Example (one-time + yolo):
   - `claude -p "Refactor this module" --dangerously-skip-permissions`
 - Warning: this bypasses safety prompts. Confirm the user asked for it.
+
+## Interactive mode (optional)
+
+Use only when the user explicitly asks for an interactive session.
+
+- Start an interactive session in the current repo:
+  - `claude`
+- Start interactive with an initial prompt:
+  - `claude "Refactor this module for clarity"`
 
 ## Common options
 
