@@ -1,6 +1,6 @@
 # Claude CLI Skill for Codex
 
-Use this skill to have Codex call the Claude Code CLI (`claude`) from your current repo for refactors, reviews, delegation, and other coding tasks.
+Use this skill to have Codex call the Claude Code CLI (`claude`) from your current repo for refactors, reviews, delegation, and other coding tasks. Default to one-time mode (`-p`) unless you explicitly ask for an interactive session.
 
 ## Requirements
 
@@ -39,18 +39,33 @@ Trigger examples:
 - "Use Claude in one-time (print) mode to complete this task."
 - "Delegate this task to Claude in yolo mode (skip permission prompts)."
 
-### Interactive mode (default)
-
-```
-claude
-```
-
-### One-time mode (print)
+### One-time mode (default)
 
 Runs once and exits:
 
 ```
 claude -p "Summarize recent changes in this repo"
+```
+
+Pipe input:
+
+```
+git diff | claude -p "Review these changes"
+```
+
+### Interactive mode (optional)
+
+Use only when you want a live session:
+
+```
+claude
+```
+
+Login note (if needed):
+
+```
+claude
+/login
 ```
 
 ### Yolo mode (skip permission prompts)
