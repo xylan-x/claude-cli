@@ -15,7 +15,7 @@ From inside Codex (CLI or IDE), run the skill installer and ask it to install fr
 
 ```
 $skill-installer
-Install the skill from GitHub repo xylan-x/claude-cli, path ".", name "claude-cli".
+install the claude-cli skill from the xylan-x/claude-cli repo, path ".", ref "master"
 ```
 
 Restart Codex after installation so it can pick up the new skill.
